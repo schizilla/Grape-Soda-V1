@@ -1,0 +1,106 @@
+-- Sync:
+loadstring(game:HttpGet("https://raw.githubusercontent.com/schizilla/sync/main/schizilla",true))();
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Credits = Instance.new("TextLabel")
+local lowhold = Instance.new("TextButton")
+local help = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = true
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Main.BorderColor3 = Color3.fromRGB(170, 85, 255)
+Main.BorderSizePixel = 4
+Main.Position = UDim2.new(0.603141367, 0, 0.568837643, 0)
+Main.Size = UDim2.new(0, 520, 0, 214)
+Main.Active = true
+Main.Draggable = true
+
+Credits.Name = "Credits"
+Credits.Parent = Main
+Credits.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Credits.BorderColor3 = Color3.fromRGB(170, 85, 255)
+Credits.BorderSizePixel = 2
+Credits.Position = UDim2.new(0, 0, 0.883177578, 0)
+Credits.Size = UDim2.new(0, 165, 0, 25)
+Credits.Font = Enum.Font.GothamBold
+Credits.Text = "made by schizilla/dre#4707"
+Credits.TextColor3 = Color3.fromRGB(0, 0, 0)
+Credits.TextSize = 10.000
+Credits.TextStrokeColor3 = Color3.fromRGB(170, 85, 255)
+Credits.TextStrokeTransparency = 0.000
+Credits.TextTransparency = 0.500
+
+lowhold.Name = "lowhold"
+lowhold.Parent = Main
+lowhold.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+lowhold.BorderColor3 = Color3.fromRGB(170, 85, 255)
+lowhold.BorderSizePixel = 2
+lowhold.Position = UDim2.new(0, 0, 0.134112075, 0)
+lowhold.Size = UDim2.new(0, 165, 0, 35)
+lowhold.Font = Enum.Font.GothamBold
+lowhold.Text = "low-hold"
+lowhold.TextColor3 = Color3.fromRGB(170, 85, 255)
+lowhold.TextSize = 14.000
+lowhold.TextStrokeColor3 = Color3.fromRGB(170, 85, 255)
+lowhold.TextStrokeTransparency = 0.500
+lowhold.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/schizilla/lowhold/main/nebulahubV1",true))();
+end)
+
+help.Name = "help"
+help.Parent = Main
+help.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+help.BorderColor3 = Color3.fromRGB(170, 85, 255)
+help.BorderSizePixel = 2
+help.LayoutOrder = -1
+help.Position = UDim2.new(0.707692325, 0, 0.00467289705, 0)
+help.Size = UDim2.new(0, 152, 0, 28)
+help.Font = Enum.Font.GothamBold
+help.Text = "\".\" to open/close"
+help.TextColor3 = Color3.fromRGB(0, 0, 0)
+help.TextSize = 14.000
+help.TextStrokeColor3 = Color3.fromRGB(170, 85, 255)
+help.TextStrokeTransparency = 0.000
+help.TextTransparency = 0.500
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Title.BorderColor3 = Color3.fromRGB(170, 85, 255)
+Title.BorderSizePixel = 2
+Title.Position = UDim2.new(0, 0, 0.00467289705, 0)
+Title.Size = UDim2.new(0, 368, 0, 28)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "     Grape Soda V1"
+Title.TextColor3 = Color3.fromRGB(170, 85, 255)
+Title.TextSize = 24.000
+Title.TextStrokeColor3 = Color3.fromRGB(170, 85, 255)
+Title.TextStrokeTransparency = 0.500
+Title.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function GBOAV_fake_script() -- Main.LocalScript 
+	local script = Instance.new('LocalScript', Main)
+
+	local frame = script.Parent -- path to the frame
+	local mouse = game:GetService('Players').LocalPlayer:GetMouse(); -- we need the mouse object, which also has the keyboard
+	
+	mouse.KeyDown:connect(function(key) -- whenever a key is pushed down
+		key = key:lower() -- i do this in all my key events, though i don't remember why
+		if key == 'f' then -- if key pressed is h
+			frame.Visible = not frame.Visible -- flip between visible/invisible
+		end
+	end)
+end
+coroutine.wrap(GBOAV_fake_script)()
